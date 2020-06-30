@@ -1,0 +1,41 @@
+@import url(./fonts/inter.css);
+@import url(./vendor/normalize.css);
+
+.root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 300px;
+    padding-right: 300px;
+    font-family: Inter, Arial, serif;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding-top: 144px;
+}
+
+.icon {
+    width: 84px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.main-title {
+    font-size: 42px;
+    line-height: 51px;
+}
+
+.title {
+    font-size: 30px;
+    line-height: 36px;
+}
+
+.article {
+    font-size: 14px;
+    line-height: 24px;
+}
