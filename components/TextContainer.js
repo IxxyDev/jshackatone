@@ -23,7 +23,6 @@ export default class TextContainer {
     }
 
     _setEventListeners() {
-        this._relocateButton.addEventListener()
     }
 
     _setText(text) {
