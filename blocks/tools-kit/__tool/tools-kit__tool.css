@@ -1,0 +1,23 @@
+.tools-kit__tool {
+  width: 20px;
+  height: 20px;
+  background: #ECECEC;
+  border-radius: 2px;
+  padding: 0;
+  margin: 0 5px 0 0;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  display: flex;
+  align-items: center;
+   justify-content: center; 
+   transform: translateX(120px);
+   transition: transform ease .3s;
+}
+.tools-kit__tool:last-of-type {
+  margin: 0;
+}
+
+.section:hover .tools-kit__tool {
+  transform: translateX(0);
+}
