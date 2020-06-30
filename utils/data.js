@@ -1,7 +1,8 @@
+import imgUrl from "../images/🏀.svg";
 export const initialData = {
   mainTitle: {
     title: "Правки",
-    img: "../images/🏀.svg",
+    img: imgUrl,
   },
   sections: [
     { text: "Статья 81", type: "title" },
