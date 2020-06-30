@@ -1,0 +1,1 @@
+import {initialData} from "./data.js"
