@@ -22,7 +22,7 @@ export default class TextContainer {
     }
 
     _setEventListeners() {
-
+        
     }
     _setText(text) {
         this._textElement.textContent = text;
