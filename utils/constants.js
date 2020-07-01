@@ -92,6 +92,7 @@ const dropFunction = (evt) => {
     textClass,
     textRenderer,
     titleRenderer,
+    removeRenderer,
   );
   texts.push(relocatedText)
   section.addnewItem(relocatedText.getTextContainer(), evt.target.closest(".section"));
@@ -118,5 +119,3 @@ export const setListeners = function () {
     
   });
 };
-
-console.log()
