@@ -17,21 +17,36 @@ const textRenderer = function (evt) {
     "article",
     textRenderer,
     titleRenderer,
+    removeRenderer
   );
   texts.push(addedText)
   section.addnewItem(addedText.getTextContainer(), evt.target.closest(".section"));
 };
+
 const titleRenderer = function (evt) {
   const addedText = new TextContainer(
     "Заголовок",
     "title",
     textRenderer,
     titleRenderer,
+    removeRenderer
   );
   texts.push(addedText)
   section.addnewItem(addedText.getTextContainer(), evt.target.closest(".section"));
 };
-
+const removeRenderer = function () {
+  if (Array.from(document.querySelectorAll('.section')).length === 0) {
+  const addedText = new TextContainer(
+    "Заголовок",
+    "title",
+    textRenderer,
+    titleRenderer,
+    removeRenderer
+  );
+  texts.push(addedText)
+  section.addItem(addedText.getTextContainer());
+  }
+};
 const texts = []
 export const section = new Section(
   {
@@ -42,6 +57,7 @@ export const section = new Section(
         item.type,
         textRenderer,
         titleRenderer,
+        removeRenderer,
       );
       texts.push(newText)
       this.addItem(newText.getTextContainer());

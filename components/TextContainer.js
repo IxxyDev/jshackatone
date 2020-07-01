@@ -4,6 +4,7 @@ export default class TextContainer {
     textClass,
     newTextRenderer,
     newTitleRenderer,
+    removeRenderer,
   ) {
     this._text = text;
     this._textClass = textClass;
@@ -19,6 +20,7 @@ export default class TextContainer {
     );
     this._newTextRenderer = newTextRenderer;
     this._newTitleRenderer = newTitleRenderer;
+    this._removeRenderer = removeRenderer;
   }
 
   _addNewText(evt) {
@@ -36,6 +38,7 @@ export default class TextContainer {
     } else if (this._deletedElement) {
       this._deletedElement.remove();
     }
+    this._removeRenderer()
   }
 
   _removeEventListeners() {
