@@ -6,6 +6,42 @@ import Storage from "../components/Storage.js";
 const storage = new Storage(initialData);
 let header = undefined;
 let section = undefined;
+const removeRenderer = function () {
+  if (Array.from(document.querySelectorAll('.section')).length === 0) {
+  const addedText = new TextContainer(
+    "Введите текст",
+    "article",
+    textRenderer,
+    titleRenderer,
+    removeRenderer
+  );
+  texts.push(addedText)
+  section.addItem(addedText.getTextContainer());
+  }
+};
+const textRenderer = function (evt) {
+  const addedText = new TextContainer(
+    "Введите текст",
+    "article",
+    textRenderer,
+    titleRenderer,
+    removeRenderer
+  );
+  texts.push(addedText)
+  section.addnewItem(addedText.getTextContainer(), evt.target.closest(".section"));
+};
+
+const titleRenderer = function (evt) {
+  const addedText = new TextContainer(
+    "Заголовок",
+    "title",
+    textRenderer,
+    titleRenderer,
+    removeRenderer
+  );
+  texts.push(addedText)
+  section.addnewItem(addedText.getTextContainer(), evt.target.closest(".section"));
+};
 const texts = []
 export const initialPageRender = function () {
   storage.initialRender();
@@ -38,42 +74,8 @@ section.rednerItems();
 initialPageRender()
 
 
-const textRenderer = function (evt) {
-  const addedText = new TextContainer(
-    "Введите текст",
-    "article",
-    textRenderer,
-    titleRenderer,
-    removeRenderer
-  );
-  texts.push(addedText)
-  section.addnewItem(addedText.getTextContainer(), evt.target.closest(".section"));
-};
 
-const titleRenderer = function (evt) {
-  const addedText = new TextContainer(
-    "Заголовок",
-    "title",
-    textRenderer,
-    titleRenderer,
-    removeRenderer
-  );
-  texts.push(addedText)
-  section.addnewItem(addedText.getTextContainer(), evt.target.closest(".section"));
-};
-const removeRenderer = function () {
-  if (Array.from(document.querySelectorAll('.section')).length === 0) {
-  const addedText = new TextContainer(
-    "Введите текст",
-    "article",
-    textRenderer,
-    titleRenderer,
-    removeRenderer
-  );
-  texts.push(addedText)
-  section.addItem(addedText.getTextContainer());
-  }
-};
+
 
 
 export function saveChanges() {
@@ -113,20 +115,36 @@ const dropFunction = (evt) => {
       item.closest(".section").classList.remove("section_transformed");
     }
   );
+  removeListeners()
+  setListeners()
 };
+
 document.querySelector(".content").addEventListener("drop", dropFunction);
+
+const dragEnter = (evt) => {
+  evt.target.closest(".section").classList.add("section_transformed");
+}
+
+const dragLeave = (evt) => {
+  evt.stopPropagation();
+  evt.target.closest(".section").classList.remove("section_transformed");
+}
+
 export const setListeners = function () {
   Array.from(document.querySelectorAll(".title, .article")).forEach((item) => {
-    item.addEventListener("dragenter", (evt) => {
-      evt.target.closest(".section").classList.add("section_transformed");
-    });
-    item.addEventListener("dragleave", (evt) => {
-      evt.stopPropagation();
-      evt.target.closest(".section").classList.remove("section_transformed");
-    });
+    item.addEventListener("dragenter", dragEnter)
+    item.addEventListener("dragleave", dragLeave);
     
   });
 };
+
+const removeListeners = function() {
+  Array.from(document.querySelectorAll(".title, .article")).forEach((item) => {
+    item.removeEventListener("dragenter", dragEnter)
+    item.removeEventListener("dragleave", dragLeave);
+    
+  });
+}
 
 document.querySelector('.reset').addEventListener('click', (evt) => {
   localStorage.clear()
