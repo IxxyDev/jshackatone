@@ -8,3 +8,13 @@
   display: flex;
   overflow: hidden;
 }
+
+@media screen and (max-width: 425px) {
+  .tools-kit {
+    left: -60px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 5px;
+  }
+}

@@ -1,5 +1,5 @@
 .icon {
-    width: 84px;
-    height: 60px;
+    max-width: 125px;
+    max-height: 125px;
     object-fit: contain;
 }

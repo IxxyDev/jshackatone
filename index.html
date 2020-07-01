@@ -8,8 +8,8 @@
   <body>
     <div class="root">
       <header class="header">
-        <img alt="Иконка" class="icon" contenteditable="true" />
-        <h1 class="main-title"></h1>
+        <img alt="Иконка" class="icon"/>
+        <h1 class="main-title" contenteditable="true"></h1>
       </header>
       <main class="content">
         <template id="title"
@@ -35,8 +35,17 @@
               <button class="tools-kit__tool" name="relocate"><img src="./images/relocate.svg" alt="" class="tools-kit__image"></button>
               <span class="tools-kit__tip">4</span>
             </div>
-            <p class="article" contenteditable="false" draggable="true"></p></div
+            <p class="article" contenteditable="true" draggable="true"></p></div
         ></template>
+        <section class="popup">
+          <div class="popup__content">
+              <form class="popup__form" novalidate>
+                  <input class="popup__input" type="url" name="link" id="url-input"
+                      required  placeholder="Ссылка на картинку" pattern=".+\.(jpg|png|svg)">
+                  <button class="popup__button popup__button_type_add" type="submit">Сохранить</button>
+              </form>
+          </div>
+      </section>
       </main>
     </div>
   </body>
