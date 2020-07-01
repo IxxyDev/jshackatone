@@ -10,7 +10,7 @@
 .tools-kit__image{position:relative}
 .tools-kit__tip{width:120px;background-color:#000;color:#fff;text-align:center;border-radius:6px;padding:5px 0;position:absolute;z-index:5;bottom:100%;left:50%;margin-left:-60px;opacity:1;transition:opacity 1s}.tools-kit__tool:hover .tools-kit__tip{visibility:visible;opacity:1}
 .tools-kit__tool_type_relocate{cursor:-webkit-grab;cursor:grab}
-.tools-kit{position:absolute;left:-150px;top:8px;display:flex;overflow:hidden;padding-right:50px}@media screen and (max-width:425px){.tools-kit{left:-60px;display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,1fr);grid-gap:5px}}
+.tools-kit{position:absolute;left:-150px;top:8px;display:flex;overflow:hidden;padding-right:50px}@media screen and (max-width:425px){.tools-kit{left:-90px;display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,1fr);grid-gap:5px}}
 .section{position:relative;list-style:none}
 .section_transformed{background-color:rgba(0,0,0,.1);border-bottom:5px solid #4169e1;transform:scale(1.01);transition:all .3s ease}
 .popup__input{width:100%;height:27px;font-size:14px;line-height:17px;box-sizing:border-box;padding:5px 6px 13px;margin-bottom:5px;border:none;border-bottom:1px solid rgba(0,0,0,.2)}
