@@ -3,14 +3,41 @@ import Section from "../components/Section.js";
 import TextContainer from "../components/TextContainer.js";
 import Title from "../components/Title.js";
 import Storage from "../components/Storage.js";
-//localStorage.clear()
 const storage = new Storage(initialData);
-storage.initialRender();
-export const header = new Title(
-  storage.getInitialData().mainTitle,
-  ".main-title",
-  ".icon"
-);
+let header = undefined;
+let section = undefined;
+const texts = []
+export const initialPageRender = function () {
+  storage.initialRender();
+   header = new Title(
+    storage.getInitialData().mainTitle,
+    ".main-title",
+    ".icon"
+  );
+  section = new Section(
+    {
+      items: storage.getInitialData().sections,
+      renderer: function (item) {
+        const newText = new TextContainer(
+          item.text,
+          item.type,
+          textRenderer,
+          titleRenderer,
+          removeRenderer,
+        );
+        texts.push(newText)
+        this.addItem(newText.getTextContainer());
+      },
+    },
+    ".content"
+  );
+  header.innitialRender();
+section.rednerItems();
+}
+
+initialPageRender()
+
+
 const textRenderer = function (evt) {
   const addedText = new TextContainer(
     "Введите текст",
@@ -47,24 +74,8 @@ const removeRenderer = function () {
   section.addItem(addedText.getTextContainer());
   }
 };
-const texts = []
-export const section = new Section(
-  {
-    items: storage.getInitialData().sections,
-    renderer: function (item) {
-      const newText = new TextContainer(
-        item.text,
-        item.type,
-        textRenderer,
-        titleRenderer,
-        removeRenderer,
-      );
-      texts.push(newText)
-      this.addItem(newText.getTextContainer());
-    },
-  },
-  ".content"
-);
+
+
 export function saveChanges() {
   const sectionElements = Array.from(
     document.querySelectorAll(".title, .article")
@@ -119,3 +130,13 @@ export const setListeners = function () {
     
   });
 };
+
+document.querySelector('.reset').addEventListener('click', (evt) => {
+  localStorage.clear()
+  Array.from(document.querySelectorAll(".title, .article")).forEach((item) => {
+    item.remove()
+    
+  });
+  initialPageRender()
+})
+export {header, section}

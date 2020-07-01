@@ -2,10 +2,9 @@ import "../pages/index.css";
 import Section from "../components/Section.js";
 import TextContainer from "../components/TextContainer.js";
 import Title from "../components/Title.js";
-import {header, section, saveChanges, setListeners} from "../utils/constants.js";
-header.innitialRender();
-section.rednerItems();
-//saveChanges()
+
+import {header, section, saveChanges, setListeners, initialPageRender} from "../utils/constants.js";
+
 window.addEventListener('beforeunload', saveChanges);
 const input = document.querySelector('.popup__input');
 const popup = document.querySelector('.popup');

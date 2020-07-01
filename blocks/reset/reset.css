@@ -1,0 +1,17 @@
+.reset {
+  position: fixed;
+  right: 10px;
+  top: 10px;
+  background-image: url(../../images/PinClipart.com_cereal-box-clipart_154906.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center, center;
+  height: 50px;
+  width: 50px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  background-color: inherit;
+  cursor: pointer;
+}
