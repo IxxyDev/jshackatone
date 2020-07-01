@@ -33,8 +33,7 @@ export default class TextContainer {
     this._removeEventListeners();
     if (element) {
       element.remove();
-    } else {
-      console.log(this._deletedElement);
+    } else if (this._deletedElement) {
       this._deletedElement.remove();
     }
   }
@@ -61,6 +60,7 @@ export default class TextContainer {
 
     this._relocateButton.addEventListener("dragstart", (evt) => {
       console.log("start");
+      this._deletedElement =  evt.target.closest(".section")
       evt.dataTransfer.setData("text", this._text);
       evt.dataTransfer.setData("class", this._textClass);
       evt.target.closest(".section").style.opacity = "0.4";
