@@ -37,8 +37,8 @@ const titleRenderer = function (evt) {
 const removeRenderer = function () {
   if (Array.from(document.querySelectorAll('.section')).length === 0) {
   const addedText = new TextContainer(
-    "Заголовок",
-    "title",
+    "Введите текст",
+    "article",
     textRenderer,
     titleRenderer,
     removeRenderer
