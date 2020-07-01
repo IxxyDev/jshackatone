@@ -8,9 +8,9 @@
   </head>
   <body>
     <div class="root">
-      <button class="reset"></button>
+      <button class="reset" title="Восстановить стандартный текст"></button>
       <header class="header">
-        <img alt="Иконка" class="icon"/>
+        <img alt="Иконка" class="icon" title="Изменить иконку"/>
         <h1 class="main-title" contenteditable="true"></h1>
       </header>
       <main >
@@ -18,10 +18,10 @@
         <template id="title"
           ><li class="section" draggable="true">
             <div class="tools-kit">
-              <button class="tools-kit__tool" name="title"><img src="./images/H1.svg" alt="" class="tools-kit__image"></button>
-              <button class="tools-kit__tool" name="text"><img src="./images/T.svg" alt="" class="tools-kit__image"></button>
-              <button class="tools-kit__tool" name="delete"><img src="./images/delete.svg" alt="" class="tools-kit__image"></button>
-              <button class="tools-kit__tool" name="relocate"><img src="./images/relocate.svg" alt="" class="tools-kit__image"></button>
+              <button class="tools-kit__tool" name="title" title="Создать новый заголовок"><img src="./images/H1.svg" alt="" class="tools-kit__image"></button>
+              <button class="tools-kit__tool" name="text" title="Создать новый блок с текстом"><img src="./images/T.svg" alt="" class="tools-kit__image"></button>
+              <button class="tools-kit__tool" name="delete" title="Удалить блок"><img src="./images/delete.svg" alt="" class="tools-kit__image"></button>
+              <button class="tools-kit__tool tools-kit__tool_type_relocate" name="relocate" title="Перенести блок"><img src="./images/relocate.svg" alt="" class="tools-kit__image"></button>
             </div>
 
             <h2 class="title"contenteditable="true" ></h2></li
@@ -29,14 +29,14 @@
         <template id="article"
           ><li class="section" draggable="true">
             <div class="tools-kit">
-              <button class="tools-kit__tool" name="title"><img src="./images/H1.svg" alt="" class="tools-kit__image"></button>
-              <span class="tools-kit__tip">1</span>
-              <button class="tools-kit__tool" name="text"><img src="./images/T.svg" alt="" class="tools-kit__image"></button>
-              <span class="tools-kit__tip">2</span>
-              <button class="tools-kit__tool" name="delete"><img src="./images/delete.svg" alt="" class="tools-kit__image"></button>
-              <span class="tools-kit__tip">3</span>
-              <button class="tools-kit__tool" name="relocate"><img src="./images/relocate.svg" alt="" class="tools-kit__image"></button>
-              <span class="tools-kit__tip">4</span>
+              <button class="tools-kit__tool" name="title" title="Создать новый заголовок"><img src="./images/H1.svg" alt="" class="tools-kit__image"></button>
+
+              <button class="tools-kit__tool" name="text"  title="Создать новый блок с текстом"><img src="./images/T.svg" alt="" class="tools-kit__image"></button>
+
+              <button class="tools-kit__tool" name="delete" title="Удалить блок"><img src="./images/delete.svg" alt="" class="tools-kit__image"></button>
+             
+              <button class="tools-kit__tool tools-kit__tool_type_relocate" name="relocate" title="Перенести блок"><img src="./images/relocate.svg" alt="" class="tools-kit__image"></button>
+          
             </div>
             <p class="article" contenteditable="true"></p></li
         ></template>

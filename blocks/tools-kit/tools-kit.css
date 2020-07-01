@@ -1,6 +1,7 @@
 @import url(./__tool/tools-kit__tool.css);
 @import url(./__image/tools-kit__image.css);
 @import url(./__tip/tools-kit__tip.css);
+@import url(./__tool/_type/tools-kit__tool_type_relocate.css);
 .tools-kit {
   position: absolute;
   left: -150px;
