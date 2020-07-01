@@ -4,7 +4,7 @@ export default class TextContainer {
     textClass,
     newTextRenderer,
     newTitleRenderer,
-    removeRenderer,
+    removeRenderer
   ) {
     this._text = text;
     this._textClass = textClass;
@@ -35,13 +35,12 @@ export default class TextContainer {
     if (element) {
       this._removeEventListeners();
       element.remove();
-
     } else if (this._deletedElement) {
       this._removeEventListeners();
       this._deletedElement.remove();
     }
-    
-    this._removeRenderer()
+
+    this._removeRenderer();
   }
 
   _removeEventListeners() {
@@ -65,13 +64,12 @@ export default class TextContainer {
     this._deleteButton.addEventListener("click", this._deleteCallback);
 
     this._relocateButton.addEventListener("dragstart", (evt) => {
-      this._deletedElement =  evt.target.closest(".section")
+      this._deletedElement = evt.target.closest(".section");
       evt.dataTransfer.setData("text", this._text);
       evt.dataTransfer.setData("class", this._textClass);
       evt.target.closest(".section").style.opacity = "0.4";
     });
     this._relocateButton.addEventListener("dragend", (evt) => {
-
       evt.target.closest(".section").style.opacity = "1";
     });
   }

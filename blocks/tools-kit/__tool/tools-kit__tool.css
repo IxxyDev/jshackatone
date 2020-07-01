@@ -2,7 +2,7 @@
   position: relative;
   width: 20px;
   height: 20px;
-  background: #ECECEC;
+  background: #ececec;
   border-radius: 2px;
   padding: 0;
   margin: 0 5px 0 0;
@@ -11,9 +11,9 @@
   border: none;
   display: flex;
   align-items: center;
-   justify-content: center; 
-    transform: translateX(150px); 
-   transition: transform ease .3s;
+  justify-content: center;
+  transform: translateX(150px);
+  transition: transform ease 0.3s;
 }
 .tools-kit__tool:last-of-type {
   margin: 0;
@@ -21,4 +21,4 @@
 
 .section:hover .tools-kit__tool {
   transform: translateX(30px);
-} 
+}

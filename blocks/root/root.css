@@ -1,33 +1,33 @@
 .root {
-    display: flex;
-    max-width: 1280px;
-    flex-direction: column;
-    margin: 0 auto;
-    justify-content: center;
-    padding-left: 300px;
-    padding-right: 300px;
-    font-family: Inter, Arial, serif;
-    box-sizing: border-box;
-  min-width: 320px; 
+  display: flex;
+  max-width: 1280px;
+  flex-direction: column;
+  margin: 0 auto;
+  justify-content: center;
+  padding-left: 300px;
+  padding-right: 300px;
+  font-family: Inter, Arial, serif;
+  box-sizing: border-box;
+  min-width: 320px;
 }
 
 @media screen and (max-width: 1024px) {
-    .root {
+  .root {
     padding-left: 225px;
     padding-right: 225px;
-    }
+  }
 }
 
 @media screen and (max-width: 768px) {
-    .root {
+  .root {
     padding-left: 150px;
     padding-right: 150px;
-    }
+  }
 }
 
 @media screen and (max-width: 425px) {
-    .root {
+  .root {
     padding-left: 75px;
     padding-right: 75px;
-    }
+  }
 }

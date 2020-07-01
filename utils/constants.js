@@ -7,16 +7,16 @@ const storage = new Storage(initialData);
 let header = undefined;
 let section = undefined;
 const removeRenderer = function () {
-  if (Array.from(document.querySelectorAll('.section')).length === 0) {
-  const addedText = new TextContainer(
-    "Введите текст",
-    "article",
-    textRenderer,
-    titleRenderer,
-    removeRenderer
-  );
-  texts.push(addedText)
-  section.addItem(addedText.getTextContainer());
+  if (Array.from(document.querySelectorAll(".section")).length === 0) {
+    const addedText = new TextContainer(
+      "Введите текст",
+      "article",
+      textRenderer,
+      titleRenderer,
+      removeRenderer
+    );
+    texts.push(addedText);
+    section.addItem(addedText.getTextContainer());
   }
 };
 const textRenderer = function (evt) {
@@ -27,8 +27,11 @@ const textRenderer = function (evt) {
     titleRenderer,
     removeRenderer
   );
-  texts.push(addedText)
-  section.addnewItem(addedText.getTextContainer(), evt.target.closest(".section"));
+  texts.push(addedText);
+  section.addnewItem(
+    addedText.getTextContainer(),
+    evt.target.closest(".section")
+  );
 };
 
 const titleRenderer = function (evt) {
@@ -39,13 +42,16 @@ const titleRenderer = function (evt) {
     titleRenderer,
     removeRenderer
   );
-  texts.push(addedText)
-  section.addnewItem(addedText.getTextContainer(), evt.target.closest(".section"));
+  texts.push(addedText);
+  section.addnewItem(
+    addedText.getTextContainer(),
+    evt.target.closest(".section")
+  );
 };
-const texts = []
+const texts = [];
 export const initialPageRender = function () {
   storage.initialRender();
-   header = new Title(
+  header = new Title(
     storage.getInitialData().mainTitle,
     ".main-title",
     ".icon"
@@ -59,24 +65,19 @@ export const initialPageRender = function () {
           item.type,
           textRenderer,
           titleRenderer,
-          removeRenderer,
+          removeRenderer
         );
-        texts.push(newText)
+        texts.push(newText);
         this.addItem(newText.getTextContainer());
       },
     },
     ".content"
   );
   header.innitialRender();
-section.rednerItems();
-}
+  section.rednerItems();
+};
 
-initialPageRender()
-
-
-
-
-
+initialPageRender();
 
 export function saveChanges() {
   const sectionElements = Array.from(
@@ -103,55 +104,53 @@ const dropFunction = (evt) => {
     textClass,
     textRenderer,
     titleRenderer,
-    removeRenderer,
+    removeRenderer
   );
-  texts.push(relocatedText)
-  section.addnewItem(relocatedText.getTextContainer(), evt.target.closest(".section"));
-  texts.forEach((item)=> {
-    item._deleteElement()
-  })
-  Array.from(document.querySelectorAll(".title, .article")).forEach(
-    (item) => {
-      item.closest(".section").classList.remove("section_transformed");
-    }
+  texts.push(relocatedText);
+  section.addnewItem(
+    relocatedText.getTextContainer(),
+    evt.target.closest(".section")
   );
-  removeListeners()
-  setListeners()
+  texts.forEach((item) => {
+    item._deleteElement();
+  });
+  Array.from(document.querySelectorAll(".title, .article")).forEach((item) => {
+    item.closest(".section").classList.remove("section_transformed");
+  });
+  removeListeners();
+  setListeners();
 };
 
 document.querySelector(".content").addEventListener("drop", dropFunction);
 
 const dragEnter = (evt) => {
   evt.target.closest(".section").classList.add("section_transformed");
-}
+};
 
 const dragLeave = (evt) => {
   evt.stopPropagation();
   evt.target.closest(".section").classList.remove("section_transformed");
-}
+};
 
 export const setListeners = function () {
   Array.from(document.querySelectorAll(".title, .article")).forEach((item) => {
-    item.addEventListener("dragenter", dragEnter)
+    item.addEventListener("dragenter", dragEnter);
     item.addEventListener("dragleave", dragLeave);
-    
   });
 };
 
-const removeListeners = function() {
+const removeListeners = function () {
   Array.from(document.querySelectorAll(".title, .article")).forEach((item) => {
-    item.removeEventListener("dragenter", dragEnter)
+    item.removeEventListener("dragenter", dragEnter);
     item.removeEventListener("dragleave", dragLeave);
-    
   });
-}
+};
 
-document.querySelector('.reset').addEventListener('click', (evt) => {
-  localStorage.clear()
+document.querySelector(".reset").addEventListener("click", (evt) => {
+  localStorage.clear();
   Array.from(document.querySelectorAll(".title, .article")).forEach((item) => {
-    item.remove()
-    
+    item.remove();
   });
-  initialPageRender()
-})
-export {header, section}
+  initialPageRender();
+});
+export { header, section };
