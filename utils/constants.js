@@ -6,7 +6,6 @@ import Storage from "../components/Storage.js";
   //localStorage.clear() 
 const storage = new Storage (initialData);
 storage.initialRender();
-console.log(storage.getInitialData())
 export const header = new Title(storage.getInitialData().mainTitle, '.main-title', '.icon');
 const textRenderer = function(evt) {
   const addedText = new TextContainer('Введите текст', 'article',  textRenderer, titleRenderer).getTextContainer()

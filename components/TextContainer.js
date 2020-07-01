@@ -6,6 +6,7 @@ export default class TextContainer {
         this._textElement = this._element.querySelector(`.${textClass}`);
         this._addTextButton = this._element.querySelector('button[name="text"]');
         this._addTitleButton = this._element.querySelector('button[name="title"]');
+        this._deleteButton = this._element.querySelector('button[name="delete"]');
         this._newTextRenderer = newTextRenderer;
         this._newTitleRenderer = newTitleRenderer;
     }
@@ -21,8 +22,8 @@ export default class TextContainer {
       this._newTitleRenderer(evt);
     }
 
-    _editText() {
-
+    _deleteElement(evt) {
+      evt.target.closest('.section').remove();
     }
 
     _setEventListeners() {
@@ -31,6 +32,9 @@ export default class TextContainer {
       })
       this._addTitleButton.addEventListener('click', (evt) => {
         this._addNewTitle(evt);
+      })
+      this._deleteButton.addEventListener('click', (evt) => {
+        this._deleteElement(evt)
       })
     }
 
