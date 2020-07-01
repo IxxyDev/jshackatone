@@ -85,12 +85,10 @@ export function saveChanges() {
     sections.push({ text: item.textContent, type: item.classList.value });
   });
   storage.refreshStorage("sections", sections);
-  console.log(sections);
   const mainTitle = {
     title: document.querySelector(".main-title").textContent,
     img: document.querySelector(".icon").getAttribute("src"),
   };
-  console.log(mainTitle);
   storage.refreshStorage("mainTitle", mainTitle);
 }
 
@@ -119,7 +117,6 @@ const dropFunction = (evt) => {
 document.querySelector(".content").addEventListener("drop", dropFunction);
 export const setListeners = function () {
   Array.from(document.querySelectorAll(".title, .article")).forEach((item) => {
-    console.log(item);
     item.addEventListener("dragenter", (evt) => {
       evt.target.closest(".section").classList.add("section_transformed");
     });

@@ -6,6 +6,7 @@ import Title from "../components/Title.js";
 import {header, section, saveChanges, setListeners, initialPageRender} from "../utils/constants.js";
 
 window.addEventListener('beforeunload', saveChanges);
+
 const input = document.querySelector('.popup__input');
 const popup = document.querySelector('.popup');
 function openPopup() {

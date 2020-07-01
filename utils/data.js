@@ -1,4 +1,4 @@
-import imgUrl from "../images/🏀.svg";
+import imgUrl from "../images/ball.svg";
 export const initialData = {
   mainTitle: {
     title: "Правки",
