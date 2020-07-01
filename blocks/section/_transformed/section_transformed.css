@@ -1,3 +1,4 @@
 .section_transformed {
-    transform: scale(1.05, 1.05);
+    transform: scale(1, 1);
+    border-bottom: royalblue 5px solid;
 }
