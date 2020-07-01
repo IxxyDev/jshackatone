@@ -3,10 +3,11 @@
 @import url(./__tip/tools-kit__tip.css);
 .tools-kit {
   position: absolute;
-  left: -120px;
+  left: -150px;
   top: 8px;
   display: flex;
   overflow: hidden;
+  padding-right: 50px;
 }
 
 @media screen and (max-width: 425px) {
