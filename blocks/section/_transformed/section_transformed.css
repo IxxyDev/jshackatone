@@ -1,4 +1,4 @@
 .section_transformed {
-    transform: scale(1, 1);
+    background-color: rgba(0, 0, 0, .1);
     border-bottom: royalblue 5px solid;
 }

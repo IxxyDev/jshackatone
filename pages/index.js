@@ -20,7 +20,7 @@ function closePopup() {
 
 function handleSubmitClick(evt) {
     evt.preventDefault();
-    document.querySelector('.icon').src = input.value;
+    header.setTitleImage(input.value);
     closePopup();
 }
 

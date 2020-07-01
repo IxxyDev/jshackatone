@@ -62,11 +62,14 @@ export default class TextContainer {
     this._deleteButton.addEventListener("click", this._deleteCallback);
 
     this._relocateButton.addEventListener("dragstart", (evt) => {
-      console.log("start");
       this._deletedElement =  evt.target.closest(".section")
       evt.dataTransfer.setData("text", this._text);
       evt.dataTransfer.setData("class", this._textClass);
       evt.target.closest(".section").style.opacity = "0.4";
+    });
+    this._relocateButton.addEventListener("dragend", (evt) => {
+
+      evt.target.closest(".section").style.opacity = "1";
     });
   }
 
