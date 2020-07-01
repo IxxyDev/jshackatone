@@ -32,12 +32,18 @@ export default class TextContainer {
   }
 
   _deleteElement(element) {
-    this._removeEventListeners();
+    
+    console.log(element)
+    console.log(this._deletedElement)
     if (element) {
+      this._removeEventListeners();
       element.remove();
+
     } else if (this._deletedElement) {
+      this._removeEventListeners();
       this._deletedElement.remove();
     }
+    
     this._removeRenderer()
   }
 
