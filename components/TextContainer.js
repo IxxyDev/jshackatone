@@ -1,5 +1,6 @@
 export default class TextContainer {
-    constructor(text, textClass, newTextRenderer, newTitleRenderer) {
+    constructor(text, textClass, id, newTextRenderer, newTitleRenderer) {
+      this._id = id
         this._text = text; 
        // this._textClass = textClass;
         this._element = document.querySelector(`#${textClass}`).content.cloneNode(true);

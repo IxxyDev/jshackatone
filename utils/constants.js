@@ -9,15 +9,15 @@ storage.initialRender();
 console.log(storage.getInitialData())
 export const header = new Title(storage.getInitialData().mainTitle, '.main-title', '.icon');
 const textRenderer = function(evt) {
-  const addedText = new TextContainer('Введите текст', 'article', textRenderer, titleRenderer).getTextContainer()
+  const addedText = new TextContainer('Введите текст', 'article', this._id+1,  textRenderer, titleRenderer).getTextContainer()
   section.addnewItem(addedText, evt.target.closest('.section'));
 }
 const titleRenderer = function(evt) {
-  const addedText = new TextContainer('Заголовок', 'title', textRenderer, titleRenderer).getTextContainer()
+  const addedText = new TextContainer('Заголовок', 'title', this._id+1, textRenderer, titleRenderer).getTextContainer()
   section.addnewItem(addedText, evt.target.closest('.section'));
 }
-export const section = new Section({items: storage.getInitialData().sections, renderer: function(item) {
-    const newText = new TextContainer(item.text, item.type, textRenderer, titleRenderer).getTextContainer()
+export const section = new Section({items: storage.getInitialData().sections, renderer: function(item, id) {
+    const newText = new TextContainer(item.text, item.type, id, textRenderer, titleRenderer).getTextContainer()
     this.addItem(newText);
 }}, '.content'
 )
