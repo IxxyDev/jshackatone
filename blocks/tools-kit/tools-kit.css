@@ -1,10 +1,20 @@
 @import url(./__tool/tools-kit__tool.css);
 @import url(./__image/tools-kit__image.css);
+@import url(./__tip/tools-kit__tip.css);
 .tools-kit {
   position: absolute;
   left: -120px;
   top: 8px;
   display: flex;
   overflow: hidden;
-  
+}
+
+@media screen and (max-width: 425px) {
+  .tools-kit {
+    left: -60px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 5px;
+  }
 }

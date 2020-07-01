@@ -1,0 +1,20 @@
+.tools-kit__tip {
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 5;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 1;
+    transition: opacity 1s; 
+}
+
+.tools-kit__tool:hover .tools-kit__tip {
+    visibility: visible;
+    opacity: 1;
+  }

@@ -1,4 +1,5 @@
 .tools-kit__tool {
+  position: relative;
   width: 20px;
   height: 20px;
   background: #ECECEC;
