@@ -17,20 +17,37 @@ const textRenderer = function (evt) {
     "article",
     textRenderer,
     titleRenderer,
-  ).getTextContainer();
-  section.addnewItem(addedText, evt.target.closest(".section"));
+    removeRenderer
+  );
+  texts.push(addedText)
+  section.addnewItem(addedText.getTextContainer(), evt.target.closest(".section"));
 };
+
 const titleRenderer = function (evt) {
   const addedText = new TextContainer(
     "Заголовок",
     "title",
     textRenderer,
     titleRenderer,
-  ).getTextContainer();
-  section.addnewItem(addedText, evt.target.closest(".section"));
+    removeRenderer
+  );
+  texts.push(addedText)
+  section.addnewItem(addedText.getTextContainer(), evt.target.closest(".section"));
 };
-
-
+const removeRenderer = function () {
+  if (Array.from(document.querySelectorAll('.section')).length === 0) {
+  const addedText = new TextContainer(
+    "Введите текст",
+    "article",
+    textRenderer,
+    titleRenderer,
+    removeRenderer
+  );
+  texts.push(addedText)
+  section.addItem(addedText.getTextContainer());
+  }
+};
+const texts = []
 export const section = new Section(
   {
     items: storage.getInitialData().sections,
@@ -40,8 +57,10 @@ export const section = new Section(
         item.type,
         textRenderer,
         titleRenderer,
-      ).getTextContainer();
-      this.addItem(newText);
+        removeRenderer,
+      );
+      texts.push(newText)
+      this.addItem(newText.getTextContainer());
     },
   },
   ".content"
@@ -68,17 +87,17 @@ const dropFunction = (evt) => {
   evt.preventDefault();
   const text = evt.dataTransfer.getData("text");
   const textClass = evt.dataTransfer.getData("class");
-  const droppedElement = Array.from(document.querySelectorAll(`.${textClass}`)).find((item) => {
-    return item.textContent === text;
-  });
   const relocatedText = new TextContainer(
     text,
     textClass,
     textRenderer,
     titleRenderer,
-  ).getTextContainer();
-  section.addnewItem(relocatedText, evt.target.closest(".section"));
-  droppedElement.closest(".section").remove();
+  );
+  texts.push(relocatedText)
+  section.addnewItem(relocatedText.getTextContainer(), evt.target.closest(".section"));
+  texts.forEach((item)=> {
+    item._deleteElement()
+  })
   Array.from(document.querySelectorAll(".title, .article")).forEach(
     (item) => {
       item.closest(".section").classList.remove("section_transformed");
@@ -99,3 +118,5 @@ export const setListeners = function () {
     
   });
 };
+
+console.log()

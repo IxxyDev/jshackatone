@@ -4,6 +4,7 @@ export default class TextContainer {
     textClass,
     newTextRenderer,
     newTitleRenderer,
+    removeRenderer,
   ) {
     this._text = text;
     this._textClass = textClass;
@@ -19,6 +20,7 @@ export default class TextContainer {
     );
     this._newTextRenderer = newTextRenderer;
     this._newTitleRenderer = newTitleRenderer;
+    this._removeRenderer = removeRenderer;
   }
 
   _addNewText(evt) {
@@ -33,10 +35,10 @@ export default class TextContainer {
     this._removeEventListeners();
     if (element) {
       element.remove();
-    } else {
-      console.log(this._deletedElement);
+    } else if (this._deletedElement) {
       this._deletedElement.remove();
     }
+    this._removeRenderer()
   }
 
   _removeEventListeners() {
@@ -61,6 +63,7 @@ export default class TextContainer {
 
     this._relocateButton.addEventListener("dragstart", (evt) => {
       console.log("start");
+      this._deletedElement =  evt.target.closest(".section")
       evt.dataTransfer.setData("text", this._text);
       evt.dataTransfer.setData("class", this._textClass);
       evt.target.closest(".section").style.opacity = "0.4";
