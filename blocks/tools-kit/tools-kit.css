@@ -1,6 +1,7 @@
 @import url(./__tool/tools-kit__tool.css);
 @import url(./__image/tools-kit__image.css);
 @import url(./__tip/tools-kit__tip.css);
+@import url(./__tool/_relocate/tools-kit__tool_relocate.css);
 .tools-kit {
   position: absolute;
   left: -150px;
@@ -12,7 +13,7 @@
 
 @media screen and (max-width: 425px) {
   .tools-kit {
-    left: -60px;
+    left: -90px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
