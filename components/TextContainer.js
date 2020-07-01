@@ -23,19 +23,28 @@ export default class TextContainer {
     }
 
     _deleteElement(evt) {
+      this._removeEventListeners()
       evt.target.closest('.section').remove();
     }
 
+    _removeEventListeners() {
+      this._addTextButton.removeEventListener('click', this._addTextCallback);
+      this._addTitleButton.removeEventListener('click', this._addTitleCallback);
+      this._deleteButton.removeEventListener('click', this._deleteCallback);
+    }
     _setEventListeners() {
-      this._addTextButton.addEventListener('click', (evt) => {
+      this._addTextCallback =  (evt) => {
         this._addNewText(evt);
-      })
-      this._addTitleButton.addEventListener('click', (evt) => {
+      } 
+      this._addTitleCallback =  (evt) => {
         this._addNewTitle(evt);
-      })
-      this._deleteButton.addEventListener('click', (evt) => {
+      }
+      this._deleteCallback = (evt) => {
         this._deleteElement(evt)
-      })
+      }
+      this._addTextButton.addEventListener('click', this._addTextCallback);
+      this._addTitleButton.addEventListener('click', this._addTitleCallback);
+      this._deleteButton.addEventListener('click', this._deleteCallback);
     }
 
     _setText(text) {
