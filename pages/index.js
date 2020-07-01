@@ -2,7 +2,7 @@ import "../pages/index.css";
 import Section from "../components/Section.js";
 import TextContainer from "../components/TextContainer.js";
 import Title from "../components/Title.js";
-import {header, section, saveChanges} from "../utils/constants.js";
+import {header, section, saveChanges, setListeners} from "../utils/constants.js";
 header.innitialRender();
 section.rednerItems();
 //saveChanges()
@@ -41,3 +41,5 @@ document.querySelector('.icon').addEventListener('click', openPopup);
 document.addEventListener('keyup', escClose);
 document.addEventListener('mousedown', clickClose);
 document.querySelector('.popup__form').addEventListener('submit', handleSubmitClick)
+window.addEventListener('beforeunload', saveChanges)
+setListeners()
